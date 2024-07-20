@@ -61,7 +61,7 @@ jobs:
   
         - name: Push tag
           if: startsWith(github.ref, 'refs/tags/')
-          run: docker push ${{ secrets.DOCKER_USERNAME }}/agithub-actions-demopp:${{ github.ref_name }}
+          run: docker push ${{ secrets.DOCKER_USERNAME }}/github-actions-demo:${{ github.ref_name }}
 
 
       
