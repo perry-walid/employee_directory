@@ -72,12 +72,12 @@ jobs:
             context: .
             file: ./Dockerfile
             push: true
-            tags: user/app:latest,user/app:${{ github.ref_name }}
+            tags: ${{ secrets.DOCKER_USERNAME }}/github-actions-demo:latest,${{ secrets.DOCKER_USERNAME }}/github-actions-demo:${{ github.ref_name }}
             build-args: TAGGED_COMMIT=${{ startsWith(github.ref, 'refs/tags/') }}
   
         - name: Push tag
           if: startsWith(github.ref, 'refs/tags/')
-          run: docker push user/app:${{ github.ref_name }}
+          run: docker push ${{ secrets.DOCKER_USERNAME }}/agithub-actions-demopp:${{ github.ref_name }}
 
 
       
