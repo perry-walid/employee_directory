@@ -24,12 +24,11 @@ RUN gem install bundler:2.4.19
 
 # Install dependencies
 COPY Gemfile /app/Gemfile 
+COPY Gemfile.lock /app/Gemfile.lock
 RUN bundle install
 
 # Copy the application code
 COPY . /app
-RUN chown -R root:root /app
-RUN chmod 755 /app
 
 
 # Expose port 3000 to the host
